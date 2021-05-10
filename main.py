@@ -134,3 +134,391 @@
 #   total += counter
 # print(total)
 ################################
+##Write a program that will let the user enter 6 numbers using a while loop. 
+##Read in each value and add them together inside the loop. 
+##Calculate the average outside the loop 
+# counter = 1
+# number = int(input("Enter a number: "))
+# total = number ##created variable to store total
+# while counter < 8:
+#   number = int(input("Enter a number: "))
+#   counter += 1 ##count increases by 1 every time
+#   total += number ##total increases by number amount evvery time
+# print("total = ", total)
+# average = total/6
+# print("average =  ", average)
+
+#################################
+##Use a while loop to write an access program that asks the user their name. Only users who input "Emma" will be accepted. Otherwise they will be asked for their name again.
+##Once the name is entered correctly, they will be asked for a password (set it yourself using a variable)
+##If the password is correct, access is granted, if not access is denied
+
+# name = input("Enter your name: ")
+# while name != "Emma":
+#   name = input("Enter your name: ")
+# password = input("Enter your password: ")
+# while password != "Dublin":
+#   print("\n")
+#   print("***ACCESS DENIED!!***")
+#   password = input("Enter your password: ")
+# print("\n")  
+# print("***ACCESS GRANTED!!***")
+
+#######################
+###Ask the user to enter a maximum value. Use a while loop so that the program adds up all the values between 1 and that number. Print the result.
+##Get the value of all the odd numbers between one and that number too. Print the result.
+##Get the value of all the even numbers between one and that number too. Print the result.
+
+###Sum of all values
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   total += counter
+# print("The total is: ", total) 
+
+# # ###################
+# ##Even values added together
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   if counter%2 == 0: #numbers divisible by 2
+#     total += counter
+# print("Total = ", total) 
+# ###################
+##Odd values added together
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   if counter%2 == 1:
+#     total += counter
+# print(total) 
+#########################
+
+# Guessing Game  
+# Create a game where the user gets 3 chances to guess a number. 
+# The number is randomly chosen by the computer. 
+# If the guess is higher than the correct answer - the mess "Too High" appears. 
+# If the guess is lower than the correct answer the message "Too Low" appears 
+
+## need to choose a random number from between 1 and 10
+import random
+
+number = random.randint(1,10)
+
+## initialise the loop counter, starting at 0
+counter = 0
+
+##while the counter is less than 3 the user can enter a guess. if it's too high or loww they get a hint message.
+while counter <3:
+  guess = int(input("Enter a number between 1 & 10: "))
+  if guess == number:
+    print("Well done!")
+    break ## this exits the loop and ends the game
+  elif guess < number:
+    print("Too low!")
+  else:
+    print("Too high")
+  counter = counter + 1
+print("Bye!")
+###########################
+##Create another guessing game which lets the user guess as many times as necessary until they get the corrct answer
+##When they get the correct answer the user is asked if they want to play again
+##If they choose yes, the game starts again
+##If they choose no, the game ends
+
+##import a random number to guess
+# import random
+
+# number = random.randint(1, 10)
+
+##Initialise the loop guard variable - keepgoing is set to True. This means it will keep going
+
+# keepGoing = True
+
+# ##Loop as long as keepGoing is True
+# while keepGoing:
+#   guess = int(input("Enter a number between 1 & 10: "))
+#   if guess == number:
+#     print("Correct")
+#     goAgain = input("Do you want to play again? Choose Y or N: ")
+#     if goAgain == "N":
+#       keepGoing = False
+#     else:
+#       number = random.randint(1, 10)
+#   elif guess < number:
+#     print("Too Low!")
+#   else:
+#     print("Too High!")
+# print("Bye!")
+
+##############################
+##Improve our guessing game by making sure n or N is accepted. And by handling the error if the user doesnt enter a number
+
+# #import a random number to guess
+# import random
+
+# number = random.randint(1, 10)
+
+# ##Initialise the loop guard variable - keepgoing is set to True. This means it will keep going
+
+# keepGoing = True
+
+# ##Loop as long as keepGoing is True
+# while keepGoing:
+#   guess = input("Enter a number between 1 & 10: ")
+#   ##validate input
+#   while not guess.isdigit():
+#     guess = input("Enter a number between 1 & 10: ")
+#   guess = int(guess)
+#   if guess == number:
+#     print("Correct")
+#     goAgain = input("Do you want to play again? Choose Y or N: ")
+#     if goAgain.upper() == "N":
+#       keepGoing = False
+#     else:
+#       number = random.randint(1, 10)
+#   elif guess < number:
+#     print("Too Low!")
+#   else:
+#     print("Too High!")
+# print("Bye!")
+
+  
+#############################
+# list1 = input("Enter 6 numbers separated by a space: ")
+# userList = list1.split()
+# print(userList)
+
+# for i in range(len(userList)):
+#     # convert each item to int type
+#     userList[i] = int(userList[i])
+
+# # Calculating the sum of list elements
+# print("Average = ", sum(userList)/len(userList))
+
+
+
+
+#####################################
+# Now we will create a menu with 3 different options. We want to add the inputs, subtract the inputs or exit the Program
+# ## Create an intro with instructions
+
+# print("***Welcome to my calculator. It can add and subtract***")
+# print("Press 1 if you want to add the numbers together")
+# print("Press 2 if you wan to subtract the numbers")
+# print("Press 3 if you want to exit the program")
+
+# ## Create the variable to allow the user to choose an option - this can be done without a while loop but we will use one foor practice.
+# choice = int(input("Choose 1, 2, or, 3: "))
+
+# num1 = int(input("Enter the first number: "))
+# num2 = int(input("Enter the second number: "))
+# ##Because pressing 3 causes the program to end we will specify that while 3 is not pressed the user can choose 1 or 2
+
+# while (choice != 3):
+#   if  (choice == 1):
+#     total = num1 + num2
+#     print("The answer is: ", total )
+#     choice = 0
+#   elif (choice == 2):
+#     total = num1 - num2
+#     print("The answer is: ", total )
+#     choice = 0
+#   else:
+#     print("Error")
+#   choice = input("Choose 1, 2, or, 3: ")
+# print("Bye!")
+
+
+#################################
+##Use a while loop to write an access program that asks the user their name. Only users who input "Emma" will be accepted. Otherwise they will be asked for their name again.
+##Once the name is entered correctly, they will be asked for a password (set it yourself using a variable)
+##If the password is correct, access is granted, if not access is denied
+
+# name = input("Enter your name: ")
+# while name != "Emma":
+#   name = input("Enter your name: ")
+# password = input("Enter your password: ")
+# while password != "Dublin":
+#   print("\n")
+#   print("***ACCESS DENIED!!***")
+#   password = input("Enter your password: ")
+# print("\n")  
+# print("***ACCESS GRANTED!!***")
+
+#######################
+###Ask the user to enter a maximum value. Use a while loop so that the program adds up all the values between 1 and that number. Print the result.
+##Get the value of all the odd numbers between one and that number too. Print the result.
+##Get the value of all the even numbers between one and that number too. Print the result.
+###Sum of all values
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   total += counter
+# print(total) 
+
+# # ###################
+# # ##Even values added together
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   if counter%2 == 0:
+#     total += counter
+# print(total) 
+# ###################
+# ##Odd value added together
+# maxLimit = int(input("Enter a max. value: "))
+# counter = 0
+# total = counter
+# while counter < maxLimit:
+#   counter += 1
+#   if counter%2 == 1:
+#     total += counter
+# print(total) 
+#########################
+
+##Guessing Game  
+##Create a game where the user gets 3 chances to guess a number. 
+##The number is randomly chosen by the computer. 
+##If the guess is higher than the correct answer - the mess "Too High" appears. 
+##If the guess is lower than the correct answer the message "Too Low" appears 
+
+## need to choose a random number from between 1 and 10
+# import random
+
+# number = random.randint(1,10)
+
+# ## initialise the loop counter, starting at 0
+# counter = 0
+
+# ##while the counter is less than 3 the user can enter a guess. if it's too high or loww they get a hint message.
+# while counter <3:
+#   guess = int(input("Enter a number between 1 & 10: "))
+#   if guess == number:
+#     print("Well done!")
+#     break ## this exits the loop and ends the game
+#   elif guess < number:
+#     print("Too low!")
+#   else:
+#     print("Too high")
+#   counter = counter + 1
+# print("Bye!")
+###########################
+##Create another guessing game which lets the user guess as many times as necessary until they get the corrct answer
+##When they get the correct answer the user is asked if they want to play again
+##If they choose yes, the game starts again
+##If they choose no, the game ends
+
+##import a random number to guess
+# import random
+
+# number = random.randint(1, 10)
+
+##Initialise the loop guard variable - keepgoing is set to True. This means it will keep going
+
+# keepGoing = True
+
+# ##Loop as long as keepGoing is True
+# while keepGoing:
+#   guess = int(input("Enter a number between 1 & 10: "))
+#   if guess == number:
+#     print("Correct")
+#     goAgain = input("Do you want to play again? Choose Y or N: ")
+#     if goAgain == "N":
+#       keepGoing = False
+#     else:
+#       number = random.randint(1, 10)
+#   elif guess < number:
+#     print("Too Low!")
+#   else:
+#     print("Too High!")
+# print("Bye!")
+
+##############################
+##Improve our guessing game by making sure n or N is accepted. And by handling the error if the user doesnt enter a number
+
+# #import a random number to guess
+# import random
+
+# number = random.randint(1, 10)
+
+# ##Initialise the loop guard variable - keepgoing is set to True. This means it will keep going
+
+# keepGoing = True
+
+# ##Loop as long as keepGoing is True
+# while keepGoing:
+#   guess = input("Enter a number between 1 & 10: ")
+#   ##validate input
+#   while not guess.isdigit():
+#     guess = input("Enter a number between 1 & 10: ")
+#   guess = int(guess)
+#   if guess == number:
+#     print("Correct")
+#     goAgain = input("Do you want to play again? Choose Y or N: ")
+#     if goAgain.upper() == "N":
+#       keepGoing = False
+#     else:
+#       number = random.randint(1, 10)
+#   elif guess < number:
+#     print("Too Low!")
+#   else:
+#     print("Too High!")
+# print("Bye!")
+
+  
+#############################
+# list1 = input("Enter 6 numbers separated by a space: ")
+# userList = list1.split()
+# print(userList)
+
+# for i in range(len(userList)):
+#     # convert each item to int type
+#     userList[i] = int(userList[i])
+
+# # Calculating the sum of list elements
+# print("Average = ", sum(userList)/len(userList))
+
+
+
+
+#####################################
+# Now we will create a menu with 3 different options. We want to add the inputs, subtract the inputs or exit the Program
+# ## Create an intro with instructions
+
+# print("***Welcome to my calculator. It can add and subtract***")
+# print("Press 1 if you want to add the numbers together")
+# print("Press 2 if you wan to subtract the numbers")
+# print("Press 3 if you want to exit the program")
+
+# ## Create the variable to allow the user to choose an option - this can be done without a while loop but we will use one foor practice.
+# choice = int(input("Choose 1, 2, or, 3: "))
+
+# num1 = int(input("Enter the first number: "))
+# num2 = int(input("Enter the second number: "))
+# ##Because pressing 3 causes the program to end we will specify that while 3 is not pressed the user can choose 1 or 2
+
+# while (choice != 3):
+#   if  (choice == 1):
+#     total = num1 + num2
+#     print("The answer is: ", total )
+#     choice = 0
+#   elif (choice == 2):
+#     total = num1 - num2
+#     print("The answer is: ", total )
+#     choice = 0
+#   else:
+#     print("Error")
+#   choice = input("Choose 1, 2, or, 3: ")
+# print("Bye!")
+
